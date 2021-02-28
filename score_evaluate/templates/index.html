@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<div id="osmdContainer"/>
 </body>
+<script src="{% static 'opensheetmusicdisplay.min.js' %}"></script>
+<script>
+  var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay("osmdContainer");
+  osmd.setOptions({
+    backend: "svg",
+    drawTitle: true,
+    // drawingParameters: "compacttight" // don't display title, composer etc., smaller margins
+  });
+  osmd
+    .load("media/infer.notes.xml")
+    .then(
+      function() {
+        osmd.render();
+      }
+    );
+</script>
 </html>

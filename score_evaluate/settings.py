@@ -126,3 +126,6 @@ STATIC_ROOT = 'static'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "score_evaluate/static"),
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "score_evaluate/media")
+MEDIA_URL = '/media/'
